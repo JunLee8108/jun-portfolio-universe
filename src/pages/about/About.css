@@ -1,0 +1,16 @@
+.aboutContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.typingAnimation {
+  font-family: "Courier New", Courier, monospace;
+  color: #39ff14;
+  white-space: pre;
+  font-size: 24px;
+  overflow: hidden; /* Ensures the text does not spill outside its container */
+}

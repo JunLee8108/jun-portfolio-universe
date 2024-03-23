@@ -1,0 +1,57 @@
+.universe {
+  width: 100vw;
+  height: 85vh;
+  overflow: hidden;
+  position: relative;
+  background-color: black;
+}
+
+.star {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center; /* This will center the button and h1 text */
+}
+
+.content h1 {
+  color: white;
+  margin-bottom: 40px;
+}
+
+.content button {
+  padding: 15px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.4s all ease;
+}
+
+.content button:hover {
+  background-color: white;
+  color: black;
+}
