@@ -37,7 +37,7 @@ export default function Home() {
     <div
       style={{
         width: "100vw",
-        height: "100vh",
+        height: "85vh",
         overflow: "hidden",
         position: "relative",
         backgroundColor: "black",
@@ -47,7 +47,7 @@ export default function Home() {
       <div
         style={{
           position: "absolute",
-          top: "35%",
+          top: "45%",
           left: "50%",
           transform: "translate(-50%, -50%)",
           zIndex: 10,

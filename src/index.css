@@ -9,6 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #000;
+  -webkit-overflow-scrolling: touch; /* 스크롤 부드럽게 처리 */
 }
 
 code {
