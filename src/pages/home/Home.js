@@ -33,6 +33,7 @@ export default function Home() {
       {createStars(100)} {/* Create 100 stars */}
       <div className="content animation">
         <h1>Welcome to My Portfolio Universe</h1>
+        <h2>Jeong Hyun Lee</h2>
         <button onClick={() => navigate("about")}>About Me</button>
       </div>
     </div>
