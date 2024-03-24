@@ -27,6 +27,11 @@ code {
   animation: flash 0.7s 0.2s forwards;
 }
 
+.animation-slow {
+  opacity: 0;
+  animation: flash 2s 1.1s forwards;
+}
+
 @keyframes flash {
   to {
     opacity: 1;

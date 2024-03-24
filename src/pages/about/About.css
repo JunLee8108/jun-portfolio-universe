@@ -1,4 +1,4 @@
-.aboutContainer {
+.about {
   width: 100%;
   height: 200px;
   display: flex;
@@ -7,7 +7,7 @@
   /* background-color: red; */
 }
 
-.typingAnimation {
+.about-typing-animation {
   font-family: "Courier New", Courier, monospace;
   color: #39ff14;
   /* background-color: blue; */
@@ -18,8 +18,68 @@
   font-weight: bold;
 }
 
+.about-section {
+  display: flex;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: red; */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: space-around;
+}
+
+.about-photo {
+  flex: 1; /* 유연한 크기 조정 */
+  max-width: 20%; /* 사진의 최대 너비를 부모의 50%로 제한 */
+}
+
+.about-photo img {
+  width: 100%; /* 이미지를 컨테이너에 맞게 조정 */
+  height: 100%;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.2);
+}
+
+.about-photo h2 {
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.about-description {
+  flex: 1; /* 유연한 크기 조정 */
+  max-width: 50%; /* 텍스트의 최대 너비를 부모의 50%로 제한 */
+  font-size: 20px; /* 텍스트 크기 조정 */
+  color: white;
+  line-height: 35px;
+  /* background-color: red; */
+}
+
 @media screen and (max-width: 1280px) {
-  .typingAnimation {
-    padding: 15px;
+  .about-typing-animation {
+    padding: 10px 30px;
+  }
+
+  .about-section {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* gap: 1.5rem; */
+    margin-bottom: 40px;
+  }
+
+  .about-photo {
+    flex: none;
+    max-width: none;
+    max-width: 350px;
+    width: 60%;
+  }
+
+  .about-description {
+    flex: none;
+    max-width: none;
+    width: 70%;
+    max-width: 900px;
+    font-size: 18px;
   }
 }
