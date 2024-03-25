@@ -1,8 +1,9 @@
+import { motion, useAnimation } from "framer-motion";
 import "./About.css";
-
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function About() {
+  const controls = useAnimation(); // 추가 컨텐츠에 대한 애니메이션 컨트롤
   const codeText = "About Me";
   const codeText2 = "Education";
 
@@ -10,14 +11,19 @@ export default function About() {
     initial: { opacity: 0 },
     animate: (custom) => ({
       opacity: 1,
-      transition: { delay: custom * 0.04 },
+      transition: { delay: custom * 0.05 },
     }),
+    complete: () =>
+      controls.start({
+        opacity: 1,
+        transition: { duration: 0.8, delay: 0.15 },
+        y: 0,
+      }),
   };
 
-  const sectionVariants = {
-    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
-    hidden: { opacity: 0, y: 30 },
-  };
+  useEffect(() => {
+    controls.start({ opacity: 0, y: 20 }); // 초기에는 다른 컨텐츠를 숨깁니다.
+  }, [controls]);
 
   return (
     <div className="about">
@@ -31,6 +37,11 @@ export default function About() {
                 variants={textMotionProps}
                 initial="initial"
                 animate="animate"
+                onAnimationComplete={
+                  index === codeText.length - 1
+                    ? textMotionProps.complete
+                    : null
+                }
               >
                 {char}
               </motion.span>
@@ -41,9 +52,7 @@ export default function About() {
         <motion.section
           className="about-me-section animation-slow"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={sectionVariants}
+          animate={controls}
         >
           <div className="about-me-photo">
             <img src="/imgs/JunLee.webp" alt="Jeong Hyun Lee" />
@@ -82,9 +91,7 @@ export default function About() {
       <motion.section
         className="about-me-section animation-slow"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={sectionVariants}
+        animate={controls}
       >
         <div className="about-me-photo">
           <img src="/imgs/tam-logo.png" alt="Texas A&M University" />
