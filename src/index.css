@@ -29,7 +29,7 @@ code {
 
 .animation-slow {
   opacity: 0;
-  animation: flash 2s 1.1s forwards;
+  animation: flash 1s 1.1s forwards;
 }
 
 @keyframes flash {
