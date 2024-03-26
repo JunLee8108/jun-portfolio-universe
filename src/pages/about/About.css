@@ -256,6 +256,10 @@
     padding-bottom: 60px;
   }
 
+  .tech-stack-container img {
+    max-width: 42%;
+  }
+
   .tech-stack-modal {
     width: 80%;
     height: 70%;
