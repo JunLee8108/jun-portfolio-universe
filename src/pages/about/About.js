@@ -11,18 +11,18 @@ export default function About() {
     initial: { opacity: 0 },
     animate: (custom) => ({
       opacity: 1,
-      transition: { delay: custom * 0.05 },
+      transition: { delay: custom * 0.04 },
     }),
-    complete: () =>
-      controls.start({
-        opacity: 1,
-        transition: { duration: 0.8, delay: 0.15 },
-        y: 0,
-      }),
+    complete: () => controls.start({ opacity: 1 }),
+  };
+
+  const sectionVariants = {
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.55 } },
+    hidden: { opacity: 0, y: 20 },
   };
 
   useEffect(() => {
-    controls.start({ opacity: 0, y: 20 }); // 초기에는 다른 컨텐츠를 숨깁니다.
+    controls.start({ opacity: 0 }); // 초기에는 다른 컨텐츠를 숨깁니다.
   }, [controls]);
 
   return (
@@ -50,9 +50,11 @@ export default function About() {
         </div>
 
         <motion.section
-          className="about-me-section animation-slow"
+          className="about-me-section"
           initial="hidden"
-          animate={controls}
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
         >
           <div className="about-me-photo">
             <img src="/imgs/JunLee.webp" alt="Jeong Hyun Lee" />
@@ -89,9 +91,11 @@ export default function About() {
       </div>
 
       <motion.section
-        className="about-me-section animation-slow"
+        className="about-me-section"
         initial="hidden"
-        animate={controls}
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
       >
         <div className="about-me-photo">
           <img src="/imgs/tam-logo.png" alt="Texas A&M University" />
