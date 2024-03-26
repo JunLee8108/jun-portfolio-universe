@@ -1,11 +1,12 @@
-import { motion, useAnimation } from "framer-motion";
 import "./About.css";
-import { useEffect } from "react";
+import { techStackData } from "../../utils/data/data";
+
+import { motion } from "framer-motion";
 
 export default function About() {
-  const controls = useAnimation(); // 추가 컨텐츠에 대한 애니메이션 컨트롤
   const codeText = "About Me";
   const codeText2 = "Education";
+  const codeText3 = "Tech Stack";
 
   const textMotionProps = {
     initial: { opacity: 0 },
@@ -13,7 +14,6 @@ export default function About() {
       opacity: 1,
       transition: { delay: custom * 0.04 },
     }),
-    complete: () => controls.start({ opacity: 1 }),
   };
 
   const sectionVariants = {
@@ -21,12 +21,9 @@ export default function About() {
     hidden: { opacity: 0, y: 30 },
   };
 
-  useEffect(() => {
-    controls.start({ opacity: 0 }); // 초기에는 다른 컨텐츠를 숨깁니다.
-  }, [controls]);
-
   return (
     <div className="about">
+      {/* About Me */}
       <div className="about-me">
         <div className="about-typing-animation-container">
           <motion.div className="about-typing-animation">
@@ -37,11 +34,6 @@ export default function About() {
                 variants={textMotionProps}
                 initial="initial"
                 animate="animate"
-                onAnimationComplete={
-                  index === codeText.length - 1
-                    ? textMotionProps.complete
-                    : null
-                }
               >
                 {char}
               </motion.span>
@@ -95,6 +87,7 @@ export default function About() {
         </motion.section>
       </div>
 
+      {/* Education */}
       <div className="about-education">
         <div className="about-typing-animation-container">
           <motion.div className="about-typing-animation">
@@ -152,6 +145,43 @@ export default function About() {
               successful career in web development.
             </p>
           </div>
+        </motion.section>
+      </div>
+
+      {/* Tech-Stack */}
+      <div className="about-tech-stack">
+        <div className="about-typing-animation-container tech-stack-animation-container">
+          <motion.div className="about-typing-animation">
+            {codeText3.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                custom={index}
+                variants={textMotionProps}
+                initial="initial"
+                animate="animate"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.section
+          className="about-tech-tack-section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
+          {techStackData.map((item, index) => {
+            return (
+              <div className="tech-stack-container" key={index}>
+                <img src={item.img} alt="tech stack"></img>
+                <h3>{item.name}</h3>
+                <div className="tech-stack-border"></div>
+              </div>
+            );
+          })}
         </motion.section>
       </div>
     </div>

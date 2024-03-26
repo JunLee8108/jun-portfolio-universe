@@ -1,4 +1,6 @@
-.about-me {
+.about-me,
+.about-education,
+.about-tech-stack {
   padding-bottom: 90px;
 }
 
@@ -13,8 +15,11 @@
   align-items: center;
 }
 
+.tech-stack-animation-container {
+  max-width: 1180px;
+}
+
 .about-typing-animation {
-  /* font-family: "Courier New", Courier, monospace; */
   color: var(--neon-green);
   letter-spacing: 1px;
   padding: 10px;
@@ -71,7 +76,55 @@
 
 .about-education {
   background-color: #0a0a0a;
-  padding-bottom: 90px;
+}
+
+.about-tech-tack-section {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  background-color: #212121;
+  padding: 30px;
+  border-radius: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 1rem 3rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.tech-stack-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: white;
+  transition: 0.7s all ease;
+  cursor: pointer;
+}
+
+.tech-stack-container:hover {
+  transform: translateY(-10px);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.tech-stack-container img {
+  max-width: 55%;
+}
+
+.tech-stack-border {
+  width: 0%;
+  height: 2px;
+  background-color: var(--neon-green);
+  transition: 0.8s all ease;
+}
+
+.tech-stack-container:hover .tech-stack-border {
+  width: 95px;
+}
+
+@media (hover: hover) {
 }
 
 @media screen and (max-width: 1280px) {
