@@ -95,36 +95,6 @@
     border-top: 1px dotted #202020;
   }
 
-  .animated-show {
-    animation: show-menu 0.4s forwards;
-  }
-
-  .animated-hide {
-    animation: hide-menu 0.4s forwards;
-  }
-
-  @keyframes show-menu {
-    from {
-      opacity: 0;
-      transform: translateY(-2%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-  }
-
-  @keyframes hide-menu {
-    from {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-2%);
-    }
-  }
-
   .mobile-menu {
     padding-left: 43px;
     color: white;

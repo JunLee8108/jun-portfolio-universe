@@ -1,7 +1,7 @@
 import "./About.css";
 import { techStackData } from "../../utils/data/data";
 
-import { useState } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 import { motion } from "framer-motion";
 
@@ -9,6 +9,13 @@ export default function About() {
   const codeText = "About Me";
   const codeText2 = "Education";
   const codeText3 = "Tech Stack";
+
+  const [isTechStackModal, setTechStackModal] = useState(false);
+  const [controlTechStackModal, setControlTechStackModal] = useState(false);
+  const [techStack, setTechStack] = useState("");
+  const techStackModalData = techStackData.filter(
+    (item) => item.name === techStack
+  );
 
   const textMotionProps = {
     initial: { opacity: 0 },
@@ -22,6 +29,34 @@ export default function About() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.6 } },
     hidden: { opacity: 0, y: 30 },
   };
+
+  const handleTechStackModal = (name) => () => {
+    setControlTechStackModal(true);
+    setTechStack(name);
+  };
+
+  const closeModalWhenYouClickBG = (e) => {
+    const target = document.querySelector(".tech-stack-modal-bg");
+    if (e.target === target) {
+      setControlTechStackModal(false);
+    }
+  };
+
+  useEffect(() => {
+    let timer;
+
+    if (controlTechStackModal) {
+      setTechStackModal(true);
+    } else {
+      timer = setTimeout(() => {
+        setTechStackModal(false);
+      }, 400);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [controlTechStackModal]);
 
   return (
     <div className="about">
@@ -169,7 +204,11 @@ export default function About() {
         >
           {techStackData.map((item, index) => {
             return (
-              <div className="tech-stack-container" key={index}>
+              <div
+                className="tech-stack-container"
+                key={index}
+                onClick={handleTechStackModal(item.name)}
+              >
                 <img src={item.img} alt="tech stack"></img>
                 <h3>{item.name}</h3>
                 <div className="tech-stack-border"></div>
@@ -178,6 +217,41 @@ export default function About() {
           })}
         </motion.section>
       </div>
+
+      {isTechStackModal ? (
+        <div
+          className={`tech-stack-modal-bg ${
+            controlTechStackModal ? "animated-show-bg" : "animated-hide-bg"
+          }`}
+          onClick={closeModalWhenYouClickBG}
+        >
+          <div
+            className={`tech-stack-modal ${
+              controlTechStackModal
+                ? "animated-tech-stack"
+                : "animated-hide-tech-stack"
+            }`}
+          >
+            <h1>{techStackModalData[0].name}</h1>
+            <div className="tech-stack-description">
+              {techStackModalData[0].description.map((item, index) => {
+                return (
+                  <Fragment key={index}>
+                    <h3>{item.main}</h3>
+                    <p>{item.support}</p>
+                  </Fragment>
+                );
+              })}
+            </div>
+            <button
+              className="tech-stack-close"
+              onClick={() => setControlTechStackModal(false)}
+            >
+              CLOSE
+            </button>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

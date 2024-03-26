@@ -32,6 +32,92 @@ code {
   animation: flash 1s 1.1s forwards;
 }
 
+.animated-show {
+  animation: show-menu 0.4s forwards;
+}
+
+.animated-tech-stack {
+  animation: show-modal 0.4s forwards;
+}
+
+.animated-show-bg {
+  animation: show-menu-bg 0.4s forwards;
+}
+
+.animated-hide {
+  animation: hide-menu 0.4s forwards;
+}
+
+.animated-hide-tech-stack {
+  animation: hide-modal 0.4s forwards;
+}
+
+.animated-hide-bg {
+  animation: hide-menu-bg 0.4s forwards;
+}
+
+@keyframes show-menu {
+  from {
+    opacity: 0;
+    transform: translateY(-2%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes show-modal {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes show-menu-bg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide-menu {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-2%);
+  }
+}
+
+@keyframes hide-modal {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes hide-menu-bg {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes flash {
   to {
     opacity: 1;

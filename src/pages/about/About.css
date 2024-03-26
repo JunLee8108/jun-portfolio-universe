@@ -124,6 +124,79 @@
   width: 95px;
 }
 
+.tech-stack-modal-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-stack-modal {
+  width: 85%;
+  max-width: 450px;
+  height: 85%;
+  max-height: 700px;
+  overflow-y: auto;
+  border-radius: 10px;
+  background: radial-gradient(
+    circle at 18.7% 37.8%,
+    rgb(250, 250, 250) 0%,
+    rgb(225, 234, 238) 90%
+  );
+  padding: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tech-stack-modal h1 {
+  text-align: center;
+  padding: 5px 8px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  /* border-bottom: 3px solid red; */
+  /* background-color: red; */
+}
+
+.tech-stack-description {
+  padding: 5px 40px;
+}
+
+.tech-stack-description h3 {
+  display: list-item;
+  list-style-type: "\2757";
+  margin-bottom: -10px;
+  line-height: 25px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tech-stack-description p {
+  line-height: 25px;
+  margin-bottom: 25px;
+}
+
+.tech-stack-close {
+  outline: none;
+  padding: 13px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  transition: 0.4s all ease;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tech-stack-close:hover {
+  background-color: black;
+  color: white;
+}
+
 @media (hover: hover) {
 }
 
@@ -180,5 +253,14 @@
   .about-me,
   .about-education {
     padding-bottom: 60px;
+  }
+
+  .tech-stack-modal {
+    width: 80%;
+    height: 70%;
+  }
+
+  .tech-stack-description {
+    padding: 5px 25px;
   }
 }
