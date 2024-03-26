@@ -1,6 +1,8 @@
 import "./About.css";
 import { techStackData } from "../../utils/data/data";
 
+import { useState } from "react";
+
 import { motion } from "framer-motion";
 
 export default function About() {

@@ -84,7 +84,11 @@
     position: absolute;
     left: 0;
     top: 100%;
-    background-color: black;
+    background: radial-gradient(
+      circle at 10% 20%,
+      rgb(0, 0, 0) 0%,
+      rgb(64, 64, 64) 90.2%
+    );
     width: 100%;
     min-height: 100vh;
     z-index: 999;
