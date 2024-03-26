@@ -190,6 +190,7 @@
   transition: 0.4s all ease;
   border-radius: 10px;
   cursor: pointer;
+  color: black;
 }
 
 .tech-stack-close:hover {
