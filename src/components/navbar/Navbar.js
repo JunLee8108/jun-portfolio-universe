@@ -68,7 +68,14 @@ export default function Navbar() {
       <nav className="navbar">
         <section className="navbar-header-section">
           <header className="navbar-header cursor-pointer">
-            <h1 onClick={handleNavigation("Home")}>Jeong Hyun Lee</h1>
+            <h1
+              onClick={() => {
+                if (controlMobileMenu) setControlMobileMenu(false);
+                handleNavigation("Home")();
+              }}
+            >
+              Jeong Hyun Lee
+            </h1>
           </header>
         </section>
 

@@ -85,10 +85,10 @@
     left: 0;
     top: 100%;
     background-color: black;
-    border-top: 1px solid white;
     width: 100%;
     min-height: 100vh;
     z-index: 999;
+    border-top: 0.5px dotted white;
   }
 
   .animated-show {
@@ -130,7 +130,7 @@
     list-style-type: "\2757";
     text-indent: 5px;
     padding: 15px 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: bold;
     font-size: 20px;
   }
@@ -156,6 +156,6 @@
   }
 
   .mobile-menu-item {
-    font-size: 17px;
+    font-size: 15px;
   }
 }
