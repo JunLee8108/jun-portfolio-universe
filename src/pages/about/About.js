@@ -130,14 +130,6 @@ export default function About() {
               collaborative skills.
             </p>
             <p>
-              These hands-on experiences have allowed me to apply theoretical
-              knowledge in practical settings, enhancing my understanding of web
-              technologies and project management. I have been continuously
-              developing my abilities to work effectively in team environments,
-              addressing challenges, and delivering solutions that meet our
-              project goals.
-            </p>
-            <p>
               My education has not only been about gaining technical skills but
               also about growing as a collaborative team member and a
               problem-solver. As I approach my graduation, I remain committed to
