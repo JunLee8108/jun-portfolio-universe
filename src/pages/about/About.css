@@ -1,15 +1,10 @@
-.about {
-  padding-bottom: 100px;
-}
-
 .about-me {
-  background-color: #202020;
-  padding-bottom: 100px;
+  padding-bottom: 90px;
 }
 
 .about-typing-animation-container {
   width: 100%;
-  max-width: 950px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   height: 200px;
@@ -20,7 +15,7 @@
 
 .about-typing-animation {
   /* font-family: "Courier New", Courier, monospace; */
-  color: #39ff14;
+  color: var(--neon-green);
   letter-spacing: 1px;
   padding: 10px;
   text-align: center;
@@ -47,25 +42,36 @@
   width: 100%;
   height: 100%;
   border-radius: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.2);
 }
 
 .about-me-photo h2 {
   text-align: center;
   color: white;
   letter-spacing: 1px;
+  line-height: 35px;
 }
 
 .about-me-description {
   flex: 1;
-  max-width: 50%;
+  max-width: 60%;
   font-size: 20px;
   color: white;
   line-height: 40px;
 }
 
+.about-me-description h2 {
+  margin-top: 0;
+}
+
 .about-me-description p {
   margin: 0;
+  margin-bottom: 15px;
+}
+
+.about-education {
+  background-color: #0a0a0a;
+  padding-bottom: 90px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -96,7 +102,26 @@
     max-width: none;
     width: 80%;
     max-width: 800px;
-    font-size: 18px;
+    font-size: 19px;
     padding-left: 10px;
+  }
+
+  .about-me-description h2 {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-typing-animation-container {
+    height: 150px;
+  }
+
+  .about-me-description {
+    font-size: 18px;
+  }
+
+  .about-me,
+  .about-education {
+    padding-bottom: 60px;
   }
 }
