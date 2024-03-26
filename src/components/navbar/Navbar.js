@@ -3,6 +3,8 @@ import "./Navbar.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const menu = ["Home", "About", "Portfolio", "Blog", "Contact"];
 
 export default function Navbar() {
@@ -10,12 +12,23 @@ export default function Navbar() {
   const location = useLocation();
 
   const [activeMenu, setActiveMenu] = useState("");
+  const [controlMobileMenu, setControlMobileMenu] = useState(false);
+  const [isMobileMenu, setMobileMenu] = useState(false);
 
   const handleNavigation = (link) => () => {
     setActiveMenu(link);
 
     if (link.includes("Home")) return navigate("/");
     navigate(link.toLowerCase());
+  };
+
+  const handleMobileNavigation = (link) => () => {
+    handleNavigation(link)();
+    setControlMobileMenu(false);
+  };
+
+  const handleOpenMobileMenu = () => {
+    setControlMobileMenu((state) => !state);
   };
 
   useEffect(() => {
@@ -33,6 +46,22 @@ export default function Navbar() {
 
     setActiveMenu(currentPath[0]);
   }, [location.pathname]);
+
+  useEffect(() => {
+    let timer;
+
+    if (controlMobileMenu) {
+      setMobileMenu(true);
+    } else {
+      timer = setTimeout(() => {
+        setMobileMenu(false);
+      }, 400);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [controlMobileMenu]);
 
   return (
     <>
@@ -62,8 +91,42 @@ export default function Navbar() {
         </section>
 
         <section className="navbar-menu-section-mobile">
-          <h3>Menu</h3>
+          {controlMobileMenu ? (
+            <FontAwesomeIcon
+              icon="fa-solid fa-rectangle-xmark"
+              className="mobile-menu-bar"
+              onClick={handleOpenMobileMenu}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon="fa-solid fa-bars"
+              className="mobile-menu-bar"
+              onClick={handleOpenMobileMenu}
+            />
+          )}
         </section>
+
+        {isMobileMenu ? (
+          <nav
+            className={`mobile-menu-container ${
+              controlMobileMenu ? "animated-show" : "animated-hide"
+            }`}
+          >
+            <ul className="mobile-menu">
+              {menu.map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="mobile-menu-item"
+                    onClick={handleMobileNavigation(item)}
+                  >
+                    {item}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        ) : null}
       </nav>
     </>
   );

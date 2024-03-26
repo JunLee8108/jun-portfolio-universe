@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .navbar-header h1 {
@@ -13,6 +14,7 @@
   font-size: 1.3rem;
   margin: 0;
   letter-spacing: 1px;
+  padding: 10px 0;
   transition: 0.4s all ease;
 }
 
@@ -53,7 +55,16 @@
   display: none;
 }
 
+.mobile-menu-container {
+  display: none;
+}
+
 @media screen and (max-width: 1280px) {
+  .navbar {
+    padding: 10px;
+    padding-left: 25px;
+  }
+
   .navbar-menu-section {
     display: none;
   }
@@ -61,10 +72,90 @@
   .navbar-menu-section-mobile {
     display: block;
   }
+
+  .mobile-menu-bar {
+    color: white;
+    font-size: 25px;
+    padding: 15px 20px;
+  }
+
+  .mobile-menu-container {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: black;
+    border-top: 1px solid white;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 999;
+  }
+
+  .animated-show {
+    animation: show-menu 0.4s forwards;
+  }
+
+  .animated-hide {
+    animation: hide-menu 0.4s forwards;
+  }
+
+  @keyframes show-menu {
+    from {
+      opacity: 0;
+      transform: translateY(-2%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes hide-menu {
+    from {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-2%);
+    }
+  }
+
+  .mobile-menu {
+    padding-left: 43px;
+    color: white;
+  }
+
+  .mobile-menu-item {
+    list-style-type: "\2757";
+    text-indent: 5px;
+    padding: 15px 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 767px) {
+  .navbar {
+    padding: 5px;
+    padding-left: 18px;
+  }
+
   .navbar-header h1 {
-    font-size: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .mobile-menu-bar {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .mobile-menu {
+    padding-left: 35px;
+  }
+
+  .mobile-menu-item {
+    font-size: 17px;
   }
 }

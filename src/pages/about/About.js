@@ -54,13 +54,13 @@ export default function About() {
           </div>
           <div className="about-me-description">
             <p>
-              Hello and welcome to my portfolio! I am an aspiring front-end
-              developer currently enriching my skills through diverse
-              educational and personal project experiences. My journey in web
-              development started with the basics: HTML, CSS, and JavaScript.
-              However, I didn't stop there; I've extended my expertise to more
-              advanced technologies such as TypeScript, React, Vue.js, and
-              Next.js, deepening my understanding of front-end development.
+              Welcome to my portfolio! I am an aspiring front-end developer
+              currently enriching my skills through diverse educational and
+              personal project experiences. My journey in web development
+              started with the basics: HTML, CSS, and JavaScript. However, I
+              didn't stop there; I've extended my expertise to more advanced
+              technologies such as TypeScript, React, Vue.js, and Next.js,
+              deepening my understanding of front-end development.
             </p>
             <p>
               Collaboration and teamwork are as crucial to me as technical
