@@ -24,11 +24,14 @@ export default function Blog() {
   };
 
   const handlePageClick = (pageNumber) => () => {
-    setCurrentPage(pageNumber);
+    // setTimeout(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+    // }, 100);
+
+    setCurrentPage(pageNumber);
   };
 
   const indexOfLastPost = currentPage * postsPerPage;
