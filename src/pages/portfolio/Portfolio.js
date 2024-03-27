@@ -11,6 +11,15 @@ export default function Portfolio() {
     hidden: { opacity: 0, y: 30 },
   };
 
+  const openInNewTab = (link) => () => {
+    const BrowserWidth = document.body.scrollWidth;
+    if (BrowserWidth > 1280 && link !== "mailto:lejhn1@gmail.com") {
+      window.open(link, "_blank");
+    } else {
+      window.location.href = link;
+    }
+  };
+
   return (
     <div className="portfolio">
       <TypingAnimation text="My Portfolio" class="portfolio-typing-container" />
@@ -37,8 +46,12 @@ export default function Portfolio() {
                 })}
               </div>
               <div className="project-button-container">
-                <button>🚀 DEMO</button>
-                <button>💻 GITHUB</button>
+                <button onClick={openInNewTab(project.iconURL1)}>
+                  🚀 DEMO
+                </button>
+                <button onClick={openInNewTab(project.iconURL2)}>
+                  💻 GITHUB
+                </button>
               </div>
             </section>
           </motion.div>
