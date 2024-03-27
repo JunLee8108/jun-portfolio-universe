@@ -24,12 +24,12 @@ export default function Blog() {
   };
 
   const handlePageClick = (pageNumber) => () => {
-    // setTimeout(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    // }, 100);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 100);
 
     setCurrentPage(pageNumber);
   };
