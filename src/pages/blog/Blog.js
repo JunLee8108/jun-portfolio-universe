@@ -1,6 +1,7 @@
 import "./Blog.css";
-import { blogData } from "../../utils/data/data";
+// import { blogData } from "../../utils/data/data";
 import TypingAnimation from "../../components/TypingAnimation";
+import BlogDataFetch from "../../components/BlogDataFetch";
 
 import { useState, useEffect } from "react";
 
@@ -11,12 +12,12 @@ export default function Blog() {
   const [currentPage, setCurrentPage] = useState(() => {
     return Number(sessionStorage.getItem("blogCurrentPage")) || 1;
   });
+  const blogData = BlogDataFetch();
   const postsPerPage = 3;
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
-    // setCurrentPage(1);
   };
 
   const handleClickPost = (id) => () => {
@@ -76,7 +77,7 @@ export default function Blog() {
         ></input>
 
         <div className="blog-post-container">
-          {!searchInput ? (
+          {!searchInput && blogData ? (
             <>
               {currentPosts.map((item, index) => (
                 <div
@@ -88,7 +89,11 @@ export default function Blog() {
                     <h1 className="blog-post-title">{item.title}</h1>
                     <p className="blog-post-date">{item.date}</p>
                   </div>
-                  <p className="blog-post-content">{item.content}</p>
+                  {/* <p className="blog-post-content">{item.content}</p> */}
+                  <div
+                    className="blog-post-content"
+                    dangerouslySetInnerHTML={{ __html: item.content }}
+                  />
                   <button className="blog-post-tag">{item.tag}</button>
                 </div>
               ))}
