@@ -107,7 +107,6 @@
   transition: all ease 0.3s;
 }
 
-.pagination-button:hover,
 .pagination-button-active {
   background-color: green;
 }
@@ -120,6 +119,10 @@
   .blog-post:hover {
     border: 2px solid green;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .pagination-button:hover {
+    background-color: green;
   }
 }
 
