@@ -49,6 +49,7 @@
 .navbar-menu-item-active {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
   color: var(--neon-green);
+  pointer-events: none;
 }
 
 .navbar-menu-section-mobile {
@@ -101,8 +102,9 @@
   }
 
   .mobile-menu-item {
-    list-style-type: "\2757";
-    text-indent: 5px;
+    /* list-style-type: "\2757"; */
+    list-style-type: disc;
+    text-indent: 3px;
     padding: 15px 5px;
     margin-bottom: 10px;
     font-weight: bold;

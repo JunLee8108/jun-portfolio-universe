@@ -1,29 +1,18 @@
 import "./About.css";
 import { techStackData } from "../../utils/data/data";
+import TypingAnimation from "../../components/TypingAnimation";
 
 import { useState, useEffect, Fragment } from "react";
 
 import { motion } from "framer-motion";
 
 export default function About() {
-  const codeText = "About Me";
-  const codeText2 = "Education";
-  const codeText3 = "Tech Stack";
-
   const [isTechStackModal, setTechStackModal] = useState(false);
   const [controlTechStackModal, setControlTechStackModal] = useState(false);
   const [techStack, setTechStack] = useState("");
   const techStackModalData = techStackData.filter(
     (item) => item.name === techStack
   );
-
-  const textMotionProps = {
-    initial: { opacity: 0 },
-    animate: (custom) => ({
-      opacity: 1,
-      transition: { delay: custom * 0.04 },
-    }),
-  };
 
   const sectionVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.6 } },
@@ -62,21 +51,7 @@ export default function About() {
     <div className="about">
       {/* About Me */}
       <div className="about-me">
-        <div className="about-typing-animation-container">
-          <motion.div className="about-typing-animation">
-            {codeText.split("").map((char, index) => (
-              <motion.span
-                key={index}
-                custom={index}
-                variants={textMotionProps}
-                initial="initial"
-                animate="animate"
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
-        </div>
+        <TypingAnimation text="About Me" />
 
         <motion.section
           className="about-me-section"
@@ -126,21 +101,7 @@ export default function About() {
 
       {/* Education */}
       <div className="about-education">
-        <div className="about-typing-animation-container">
-          <motion.div className="about-typing-animation">
-            {codeText2.split("").map((char, index) => (
-              <motion.span
-                key={index}
-                custom={index}
-                variants={textMotionProps}
-                initial="initial"
-                animate="animate"
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
-        </div>
+        <TypingAnimation text="Education" />
 
         <motion.section
           className="about-me-section"
@@ -179,21 +140,10 @@ export default function About() {
 
       {/* Tech-Stack */}
       <div className="about-tech-stack">
-        <div className="about-typing-animation-container tech-stack-animation-container">
-          <motion.div className="about-typing-animation">
-            {codeText3.split("").map((char, index) => (
-              <motion.span
-                key={index}
-                custom={index}
-                variants={textMotionProps}
-                initial="initial"
-                animate="animate"
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
-        </div>
+        <TypingAnimation
+          text="Tech Stack"
+          class="tech-stack-animation-container"
+        />
 
         <motion.section
           className="about-tech-tack-section"

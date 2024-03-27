@@ -32,7 +32,7 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    const locationPathname = location.pathname.replace("/", "");
+    const locationPathname = location.pathname.replace(/[^a-zA-Z]/g, "");
 
     const currentPath = menu
       .map((item, index) => {

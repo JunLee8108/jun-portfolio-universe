@@ -1,19 +1,10 @@
 import "./Portfolio.css";
 import { portfolioData } from "../../utils/data/data";
+import TypingAnimation from "../../components/TypingAnimation";
 
 import { motion } from "framer-motion";
 
 export default function Portfolio() {
-  const codeText = "My Portfolio";
-
-  const textMotionProps = {
-    initial: { opacity: 0 },
-    animate: (custom) => ({
-      opacity: 1,
-      transition: { delay: custom * 0.04 },
-    }),
-  };
-
   // Framer motion animation variants
   const cardVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.6 } },
@@ -22,21 +13,8 @@ export default function Portfolio() {
 
   return (
     <div className="portfolio">
-      <div className="about-typing-animation-container portfolio-typing-container">
-        <motion.div className="about-typing-animation">
-          {codeText.split("").map((char, index) => (
-            <motion.span
-              key={index}
-              custom={index}
-              variants={textMotionProps}
-              initial="initial"
-              animate="animate"
-            >
-              {char}
-            </motion.span>
-          ))}
-        </motion.div>
-      </div>
+      <TypingAnimation text="My Portfolio" class="portfolio-typing-container" />
+
       <div className="portfolio-container">
         {portfolioData.map((project) => (
           <motion.div

@@ -87,6 +87,7 @@
   background-color: #e2dddd;
   transition: 0.3s all ease;
   cursor: pointer;
+  color: black;
 }
 
 .project-button-container button:hover {
