@@ -29,7 +29,7 @@ export default function Blog() {
         top: 0,
         behavior: "smooth",
       });
-    }, 100);
+    }, 50);
 
     setCurrentPage(pageNumber);
   };
