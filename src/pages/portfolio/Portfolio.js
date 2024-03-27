@@ -1,76 +1,71 @@
-import { motion } from "framer-motion";
 import "./Portfolio.css";
+import { portfolioData } from "../../utils/data/data";
+
+import { motion } from "framer-motion";
 
 export default function Portfolio() {
-  // 이 배열은 당신의 프로젝트를 나타냅니다. 실제 데이터로 바꿔주세요.
-  const projects = [
-    {
-      id: 1,
-      title: "Project 1",
-      description: "This is a description for Project 1.",
-    },
-    {
-      id: 2,
-      title: "Project 2",
-      description: "This is a description for Project 2.",
-    },
-    {
-      id: 3,
-      title: "Project 3",
-      description: "This is a description for Project 3.",
-    },
-    // 추가 프로젝트
-  ];
+  const codeText = "My Portfolio";
 
-  const hoverVariants = {
-    hover: {
-      scale: 1.05,
-      transition: {
-        duration: 0.3, // 호버 애니메이션의 지속 시간
-        ease: "easeInOut",
-      },
-    },
+  const textMotionProps = {
+    initial: { opacity: 0 },
+    animate: (custom) => ({
+      opacity: 1,
+      transition: { delay: custom * 0.04 },
+    }),
   };
 
   // Framer motion animation variants
   const cardVariants = {
-    offscreen: {
-      y: 50,
-      opacity: 0,
-    },
-    onscreen: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.6 } },
+    hidden: { opacity: 0, y: 30 },
   };
 
   return (
-    <>
-      <h1 className="portfolio-title">My Portfolio</h1>
+    <div className="portfolio">
+      <div className="about-typing-animation-container portfolio-typing-container">
+        <motion.div className="about-typing-animation">
+          {codeText.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              custom={index}
+              variants={textMotionProps}
+              initial="initial"
+              animate="animate"
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.div>
+      </div>
       <div className="portfolio-container">
-        {projects.map((project) => (
+        {portfolioData.map((project) => (
           <motion.div
             key={project.id}
             className="project-card"
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={cardVariants}
-            whileHover={{
-              translateY: -30,
-              transition: { ease: "linear", duration: 2 },
-            }}
           >
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
+            <section className="project-img-container">
+              <img src={project.img} alt="project"></img>
+            </section>
+
+            <section className="project-description-container">
+              <h1>{project.title}</h1>
+              <div className="project-content-container">
+                {project.description.map((item, index) => {
+                  return <p key={index}>{item}</p>;
+                })}
+              </div>
+              <div className="project-button-container">
+                <button>🚀 DEMO</button>
+                <button>💻 GITHUB</button>
+              </div>
+            </section>
           </motion.div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
