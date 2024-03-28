@@ -97,7 +97,6 @@ export default function Blog() {
                         <h1 className="blog-post-title">{item.title}</h1>
                         <p className="blog-post-date">{item.date}</p>
                       </div>
-                      {/* <p className="blog-post-content">{item.content}</p> */}
                       <div
                         className="blog-post-content"
                         dangerouslySetInnerHTML={{ __html: item.content }}
@@ -123,7 +122,10 @@ export default function Blog() {
                             <h1 className="blog-post-title">{item.title}</h1>
                             <p className="blog-post-date">{item.date}</p>
                           </div>
-                          <p className="blog-post-content">{item.content}</p>
+                          <div
+                            className="blog-post-content"
+                            dangerouslySetInnerHTML={{ __html: item.content }}
+                          />
                           <button className="blog-post-tag">{item.tag}</button>
                         </div>
                       ))}
