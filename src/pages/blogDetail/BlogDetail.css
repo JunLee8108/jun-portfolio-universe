@@ -68,6 +68,65 @@
   transition: 0.4s all ease;
 }
 
+/* BlogDetail.css에 추가 */
+
+.skeleton {
+  background: #333;
+}
+
+.skleton-blog-detail {
+  max-width: 800px;
+}
+
+.skeleton-blog-detail-title,
+.skeleton-blog-detail-tag,
+.skeleton-blog-detail-date,
+.skeleton-blog-detail-content {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 10px 0;
+}
+
+.skeleton-blog-detail-title {
+  height: 30px;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.skeleton-blog-detail-tag-date-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.skeleton-blog-detail-tag,
+.skeleton-blog-detail-date {
+  height: 20px;
+  width: 30%;
+}
+
+.skeleton-blog-detail-content {
+  height: 15px;
+  width: 90%;
+  margin: 5px 0;
+}
+
+/* 기존 스타일에 애니메이션 추가 */
+.skeleton div {
+  animation: skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
 @media (hover: hover) {
   .blog-detail-back-button:hover {
     background-color: #121212;

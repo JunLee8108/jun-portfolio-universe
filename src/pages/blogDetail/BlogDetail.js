@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function BlogDetail() {
   let { id } = useParams();
-  const blogData = BlogDataFetch();
+  const { blogData, isLoading } = BlogDataFetch();
   const navigate = useNavigate();
   const post = blogData.filter((item) => item.id === Number(id));
 
@@ -25,7 +25,9 @@ export default function BlogDetail() {
   return (
     <>
       <TypingAnimation text="Blog Post" class="blog-detail-typing-animation" />
-      {post.length > 0 ? (
+      {isLoading ? (
+        <SkeletonBlogDetail />
+      ) : (
         <div className="blog-detail animation-slow">
           <div className="blog-detail-post-container">
             <h1 className="blog-detail-post-title">{post[0].title}</h1>
@@ -55,7 +57,20 @@ export default function BlogDetail() {
             </button>
           </center>
         </div>
-      ) : null}
+      )}
     </>
+  );
+}
+
+function SkeletonBlogDetail() {
+  return (
+    <div className="blog-detail-post-container skeleton skleton-blog-detail">
+      <div className="skeleton-blog-detail-title"></div>
+      <div className="skeleton-blog-detail-tag-date-container">
+        <div className="skeleton-blog-detail-tag"></div>
+        <div className="skeleton-blog-detail-date"></div>
+      </div>
+      <div className="skeleton-blog-detail-content"></div>
+    </div>
   );
 }

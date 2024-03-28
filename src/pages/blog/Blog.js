@@ -12,7 +12,7 @@ export default function Blog() {
   const [currentPage, setCurrentPage] = useState(() => {
     return Number(sessionStorage.getItem("blogCurrentPage")) || 1;
   });
-  const blogData = BlogDataFetch();
+  const { blogData, isLoading } = BlogDataFetch();
   const postsPerPage = 3;
   const navigate = useNavigate();
 
@@ -76,36 +76,18 @@ export default function Blog() {
           value={searchInput}
         ></input>
 
-        <div className="blog-post-container">
-          {!searchInput && blogData ? (
-            <>
-              {currentPosts.map((item, index) => (
-                <div
-                  className="blog-post"
-                  onClick={handleClickPost(item.id)}
-                  key={index}
-                >
-                  <div className="blog-post-title-date-container">
-                    <h1 className="blog-post-title">{item.title}</h1>
-                    <p className="blog-post-date">{item.date}</p>
-                  </div>
-                  {/* <p className="blog-post-content">{item.content}</p> */}
-                  <div
-                    className="blog-post-content"
-                    dangerouslySetInnerHTML={{ __html: item.content }}
-                  />
-                  <button className="blog-post-tag">{item.tag}</button>
-                </div>
-              ))}
-            </>
-          ) : (
-            <>
-              {searchedData.length > 0 ? (
+        {isLoading ? (
+          <>
+            <SkeletonBlogPost />
+            <SkeletonBlogPost />
+            <SkeletonBlogPost />
+          </>
+        ) : (
+          <>
+            <div className="blog-post-container">
+              {!searchInput && blogData ? (
                 <>
-                  <h2 className="blog-search-result-title">
-                    Search Result - {searchedData.length} results
-                  </h2>
-                  {searchedData.map((item, index) => (
+                  {currentPosts.map((item, index) => (
                     <div
                       className="blog-post"
                       onClick={handleClickPost(item.id)}
@@ -115,32 +97,72 @@ export default function Blog() {
                         <h1 className="blog-post-title">{item.title}</h1>
                         <p className="blog-post-date">{item.date}</p>
                       </div>
-                      <p className="blog-post-content">{item.content}</p>
+                      {/* <p className="blog-post-content">{item.content}</p> */}
+                      <div
+                        className="blog-post-content"
+                        dangerouslySetInnerHTML={{ __html: item.content }}
+                      />
                       <button className="blog-post-tag">{item.tag}</button>
                     </div>
                   ))}
                 </>
               ) : (
-                <h2 className="blog-search-result-title">No Result.</h2>
+                <>
+                  {searchedData.length > 0 ? (
+                    <>
+                      <h2 className="blog-search-result-title">
+                        Search Result - {searchedData.length} results
+                      </h2>
+                      {searchedData.map((item, index) => (
+                        <div
+                          className="blog-post"
+                          onClick={handleClickPost(item.id)}
+                          key={index}
+                        >
+                          <div className="blog-post-title-date-container">
+                            <h1 className="blog-post-title">{item.title}</h1>
+                            <p className="blog-post-date">{item.date}</p>
+                          </div>
+                          <p className="blog-post-content">{item.content}</p>
+                          <button className="blog-post-tag">{item.tag}</button>
+                        </div>
+                      ))}
+                    </>
+                  ) : (
+                    <h2 className="blog-search-result-title">No Result.</h2>
+                  )}
+                </>
               )}
-            </>
-          )}
-        </div>
+            </div>
 
-        <div className={`pagination ${searchInput ? "pagination-hide" : ""}`}>
-          {pageNumbers.map((number) => (
-            <button
-              key={number}
-              className={`pagination-button ${
-                currentPage === number ? "pagination-button-active" : ""
-              }`}
-              onClick={handlePageClick(number)}
+            <div
+              className={`pagination ${searchInput ? "pagination-hide" : ""}`}
             >
-              {number}
-            </button>
-          ))}
-        </div>
+              {pageNumbers.map((number) => (
+                <button
+                  key={number}
+                  className={`pagination-button ${
+                    currentPage === number ? "pagination-button-active" : ""
+                  }`}
+                  onClick={handlePageClick(number)}
+                >
+                  {number}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </>
+  );
+}
+
+function SkeletonBlogPost() {
+  return (
+    <div className="blog-post skeleton">
+      <div className="skeleton-title"></div>
+      <div className="skeleton-content"></div>
+      <div className="skeleton-tag"></div>
+    </div>
   );
 }
