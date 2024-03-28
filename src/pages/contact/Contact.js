@@ -51,12 +51,7 @@ export default function Contact() {
     <>
       <TypingAnimation text="Contact Me" class="contact-typing-animation" />
       <div className="contact animation-slow">
-        <form
-          className="contact-form"
-          autoComplete="off"
-          ref={form}
-          onSubmit={handleSubmit}
-        >
+        <form className="contact-form" ref={form} onSubmit={handleSubmit}>
           <h2 style={{ color: "white", marginTop: "0", textAlign: "center" }}>
             Message
           </h2>
@@ -65,7 +60,7 @@ export default function Contact() {
             <input
               type="text"
               id="firstName"
-              autoComplete="new-password"
+              name="firstName"
               placeholder="Your First Name"
               required
             />
@@ -76,7 +71,7 @@ export default function Contact() {
             <input
               type="text"
               id="lastName"
-              autoComplete="new-password"
+              name="lastName"
               placeholder="Your Last Name"
               required
             />
@@ -86,8 +81,8 @@ export default function Contact() {
           <div className="contact-input-container">
             <input
               type="email"
+              name="email"
               id="email"
-              autoComplete="new-password"
               placeholder="Your Email"
               required
             />
@@ -97,6 +92,7 @@ export default function Contact() {
           <div className="contact-textarea-container">
             <textarea
               id="message"
+              name="message"
               placeholder="Your Message"
               rows="8"
               required
