@@ -29,9 +29,13 @@ export default function BlogDetail() {
   };
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 50);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {

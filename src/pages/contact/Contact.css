@@ -1,0 +1,210 @@
+/* 타이핑 애니메이션 스타일 */
+.contact-typing-animation {
+  max-width: 1220px;
+}
+
+/* 메인 컨택트 박스 */
+.contact {
+  width: 85%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 85px;
+}
+
+.contact-form,
+.contact-info {
+  width: 50%;
+  height: 50%;
+  background: #222831; /* 박스 배경 색상 */
+  padding: 40px;
+  padding-bottom: 50px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.contact-info {
+  padding: 20px;
+  padding-bottom: none;
+  height: 50%;
+}
+
+.contact-input-container,
+.contact-textarea-container {
+  position: relative;
+}
+
+.contact-input-container label {
+  position: absolute;
+  font-size: 13px;
+  color: var(--neon-green);
+  left: 0;
+  bottom: 60px;
+  opacity: 1;
+  font-weight: 600;
+  opacity: 0;
+  transition: 0.5s all ease;
+}
+
+.contact-textarea-container label {
+  position: absolute;
+  font-size: 13px;
+  color: var(--neon-green);
+  left: 0;
+  bottom: 205px;
+  opacity: 1;
+  font-weight: 600;
+  opacity: 0;
+  transition: 0.5s all ease;
+}
+
+.contact-input-container input:focus + label,
+.contact-textarea-container textarea:focus + label {
+  opacity: 1;
+}
+
+/* 입력 필드 및 버튼 스타일 */
+.contact input,
+.contact textarea,
+.contact button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 40px;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.contact input,
+.contact textarea {
+  background-color: #393e46;
+  color: #eeeeee;
+  font-size: 17px;
+  transition: 0.5s all ease;
+  border: 2px solid transparent;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border: 2px solid green;
+}
+
+.contact textarea {
+  resize: none;
+}
+
+.hash-loader {
+  margin-top: 35px;
+}
+
+.contact button {
+  background-image: linear-gradient(
+    45deg,
+    #11998e,
+    #38ef7d
+  ); /* 버튼 그라디언트 */
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 20px 15px;
+  margin-top: 50px;
+  transition: all 0.5s ease;
+}
+
+.contact button:hover {
+  opacity: 0.5;
+}
+
+.contact-info {
+  color: white;
+}
+
+.contact-info h1 {
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.contact-info-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 1.5rem;
+}
+
+.contact-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0 20px; */
+  border-radius: 10px;
+  transition: 0.5s all ease;
+  cursor: pointer;
+  height: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.contact-img-container:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--neon-green);
+}
+
+.contact-img-container h2 {
+  letter-spacing: 1px;
+  font-size: 18px;
+  /* background-color: red; */
+}
+
+.contact-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+}
+
+.contact-img img {
+  width: 50%;
+  max-width: 200px;
+}
+
+@media screen and (max-width: 1280px) {
+  .contact-info-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .contact-img img {
+    width: 40%;
+  }
+
+  /* .contact-form {
+    height: 50%;
+  } */
+}
+
+@media screen and (max-width: 767px) {
+  .contact {
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding-bottom: 50px;
+  }
+
+  .contact-form,
+  .contact-info {
+    width: 100%;
+  }
+
+  .contact-img-container h2 {
+    font-size: 20px;
+  }
+
+  .contact-img img {
+    width: 35%;
+  }
+}
