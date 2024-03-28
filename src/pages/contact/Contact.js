@@ -57,6 +57,10 @@ export default function Contact() {
           ref={form}
           onSubmit={handleSubmit}
         >
+          <h2 style={{ color: "white", marginTop: "0", textAlign: "center" }}>
+            Message
+          </h2>
+
           <div className="contact-input-container">
             <input
               type="text"

@@ -132,12 +132,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 30px;
   gap: 1.5rem;
 }
 
 .contact-img-container {
   display: flex;
+  width: 85%;
+  max-width: 230px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -146,11 +149,11 @@
   transition: 0.5s all ease;
   cursor: pointer;
   height: 200px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
 .contact-img-container:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
   background-color: rgba(0, 0, 0, 0.2);
   color: var(--neon-green);
 }
@@ -170,7 +173,7 @@
 
 .contact-img img {
   width: 50%;
-  max-width: 200px;
+  max-width: 130px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -201,7 +204,7 @@
   }
 
   .contact-img-container h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .contact-img img {
