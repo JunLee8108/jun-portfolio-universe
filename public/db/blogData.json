@@ -1,63 +1,16 @@
 [
   {
-    "id": 0,
-    "date": "02/26/2024",
     "title": "Jun's UI Design Lab has been published!",
-    "content": "Jun's UI Design Lab is your gateway to cutting-edge solutions that blend trendy colors, captivating buttons, and CSS animations to elevate your UX/UI design journey. My curated selection of trendy colors breathes life into your designs, evoking emotion and creating memorable experiences. Combined with sleek and interactive buttons, we empower users to navigate effortlessly through your interfaces, fostering engagement and satisfaction. With CSS animations, we add an extra layer of dynamism to your designs, captivating users and guiding them through their digital journey with fluidity and grace.\n\nHere is a link: https://main.d1dglxhs285w9v.amplifyapp.com/",
-    "tag": "etc"
+    "content": "<p><span style=\"background-color: rgb(32, 32, 32);\">Jun's UI Design Lab is your gateway to cutting-edge solutions that blend trendy colors, captivating buttons, and CSS animations to elevate your UX/UI design journey. My curated selection of trendy colors breathes life into your designs, evoking emotion and creating memorable experiences. Combined with sleek and interactive buttons, we empower users to navigate effortlessly through your interfaces, fostering engagement and satisfaction. With CSS animations, we add an extra layer of dynamism to your designs, captivating users and guiding them through their digital journey with fluidity and grace.</span></p><p><br></p><p><span style=\"background-color: rgb(32, 32, 32);\">Here is a link: </span><a href=\"https://main.d1dglxhs285w9v.amplifyapp.com/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"background-color: rgb(32, 32, 32);\">https://main.d1dglxhs285w9v.amplifyapp.com/</a></p>",
+    "tag": "Project",
+    "date": "2/26/2024",
+    "id": 0
   },
   {
-    "id": 1,
-    "date": "02/26/2024",
-    "title": "Jun's UI Design Lab has been published!",
-    "content": "Jun's UI Design Lab is your gateway to cutting-edge solutions that blend trendy colors, captivating buttons, and CSS animations to elevate your UX/UI design journey. My curated selection of trendy colors breathes life into your designs, evoking emotion and creating memorable experiences. Combined with sleek and interactive buttons, we empower users to navigate effortlessly through your interfaces, fostering engagement and satisfaction. With CSS animations, we add an extra layer of dynamism to your designs, captivating users and guiding them through their digital journey with fluidity and grace.\nHere is a link: https://main.d1dglxhs285w9v.amplifyapp.com/",
-    "tag": "etc"
-  },
-  {
-    "id": 2,
-    "date": "02/26/2024",
-    "title": "Jun's UI Design Lab has been published!",
-    "content": "Jun's UI Design Lab is your gateway to cutting-edge solutions that blend trendy colors, captivating buttons, and CSS animations to elevate your UX/UI design journey. My curated selection of trendy colors breathes life into your designs, evoking emotion and creating memorable experiences. Combined with sleek and interactive buttons, we empower users to navigate effortlessly through your interfaces, fostering engagement and satisfaction. With CSS animations, we add an extra layer of dynamism to your designs, captivating users and guiding them through their digital journey with fluidity and grace.\nHere is a link: https://main.d1dglxhs285w9v.amplifyapp.com/",
-    "tag": "etc"
-  },
-  {
-    "id": 3,
-    "date": "02/26/2024",
-    "title": "Post4",
-    "content": "Jun's UI Design Lab is your gateway to cutting-edge solutions that blend trendy colors, captivating buttons, and CSS animations to elevate your UX/UI design journey. My curated selection of trendy colors breathes life into your designs, evoking emotion and creating memorable experiences. Combined with sleek and interactive buttons, we empower users to navigate effortlessly through your interfaces, fostering engagement and satisfaction. With CSS animations, we add an extra layer of dynamism to your designs, captivating users and guiding them through their digital journey with fluidity and grace.\nHere is a link: https://main.d1dglxhs285w9v.amplifyapp.com/",
-    "tag": "etc"
-  },
-  {
-    "id": 4,
-    "date": "02/26/2024",
-    "title": "Post5",
-    "content": "Jun's UI Design Lab is your gateway to cutting-edge solutions that blend trendy colors, captivating buttons, and CSS animations to elevate your UX/UI design journey. My curated selection of trendy colors breathes life into your designs, evoking emotion and creating memorable experiences. Combined with sleek and interactive buttons, we empower users to navigate effortlessly through your interfaces, fostering engagement and satisfaction. With CSS animations, we add an extra layer of dynamism to your designs, captivating users and guiding them through their digital journey with fluidity and grace.",
-    "tag": "etc"
-  },
-  {
-    "id": 5,
-    "date": "02/26/2024",
-    "title": "Post6",
-    "content": "Jun's UI Design Lab is your gateway to cutting-edge solutions that blend trendy colors, captivating buttons, and CSS animations to elevate your UX/UI design journey. My curated selection of trendy colors breathes life into your designs, evoking emotion and creating memorable experiences. Combined with sleek and interactive buttons, we empower users to navigate effortlessly through your interfaces, fostering engagement and satisfaction. With CSS animations, we add an extra layer of dynamism to your designs, captivating users and guiding them through their digital journey with fluidity and grace.\n\nHere is a link: https://main.d1dglxhs285w9v.amplifyapp.com/",
-    "tag": "etc"
-  },
-  {
-    "title": "내가 해봄",
-    "content": "<p><a href=\"\bhttps://www.naver.com/\" rel=\"noopener noreferrer\" target=\"_blank\">링크</a></p>",
-    "tag": "링크",
-    "id": 6
-  },
-  {
-    "title": "Jun's UI Design Lab has been published!",
-    "content": "<p><span style=\"background-color: rgb(32, 32, 32);\">Jun's UI Design Lab is your gateway to cutting-edge solutions that blend trendy colors, captivating buttons, and CSS animations to elevate your UX/UI design journey. My curated selection of trendy colors breathes life into your designs, evoking emotion and creating memorable experiences. Combined with sleek and interactive buttons, we empower users to navigate effortlessly through your interfaces, fostering engagement and satisfaction. With CSS animations, we add an extra layer of dynamism to your designs, captivating users and guiding them through their digital journey with fluidity and grace.</span></p><p><br></p><p><span style=\"background-color: rgb(32, 32, 32);\">Here is a link: </span><a href=\"Here is a link: https://main.d1dglxhs285w9v.amplifyapp.com/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"background-color: rgb(32, 32, 32);\">https://main.d1dglxhs285w9v.amplifyapp.com/</a></p>",
-    "tag": "etc",
-    "id": 7
-  },
-  {
-    "title": "예시",
-    "content": "<p>이것은 예시여\t</p>",
-    "tag": "예시",
+    "title": "Building My New Portfolio Website with a Twist",
+    "content": "<p>Hey there! I'm currently in the midst of developing a fresh portfolio website. I've decided to spice things up by incorporating a bunch of animations using Framer-motion. It's been a fun ride figuring out how to animate different elements and make the website feel alive.</p><p><br></p><p>The theme of my portfolio is something I'm super excited about. I'm going all in with a Universe and Black Color scheme as the main theme colors. Imagine navigating through space while checking out my projects - pretty cool, right?</p><p><br></p><p>As of now, I've got just the contact page left to finish up. The rest of the site is practically ready to go live. Can't wait to share it with everyone!</p>",
+    "tag": "Project",
     "date": "03/27/2024",
-    "id": 8
+    "id": 1
   }
 ]
