@@ -12,10 +12,6 @@ export default function BlogDetail() {
   const navigate = useNavigate();
   const post = blogData.filter((item) => item.id === Number(id));
 
-  const convertNewlinesToHTML = (str) => {
-    return str.replace(/\n/g, "<br />");
-  };
-
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
@@ -42,7 +38,7 @@ export default function BlogDetail() {
 
             <div
               dangerouslySetInnerHTML={{
-                __html: convertNewlinesToHTML(post[0].content),
+                __html: post[0].content,
               }}
               className="blog-detail-post-content"
             />

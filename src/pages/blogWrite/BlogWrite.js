@@ -28,6 +28,9 @@ const BlogWrite = () => {
   };
 
   const handleSavePost = async () => {
+    if (post.title === "") return alert("Please Enter the title.");
+    if (post.tag === "") return alert("Please Enter the tag.");
+
     // 오늘 날짜를 MM/DD/YYYY 형식으로 생성
     const today = new Date();
     const dateFormat = new Intl.DateTimeFormat("en-US", {
@@ -53,6 +56,39 @@ const BlogWrite = () => {
     }
   };
 
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "indent",
+    "link",
+    "image",
+    "align",
+    "color",
+    "background",
+  ];
+
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image"],
+      [{ align: [] }, { color: [] }, { background: [] }], // dropdown with defaults from theme
+      ["clean"],
+    ],
+  };
+
   if (!isAuthenticated) {
     return (
       <form onSubmit={verifyPassword} className="blog-write-password-form">
@@ -69,26 +105,41 @@ const BlogWrite = () => {
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="제목"
-        value={post.title}
-        onChange={(e) => setPost({ ...post, title: e.target.value })}
-      />
+    <div className="blog-write">
+      <div className="blog-write-title-tag-container">
+        <input
+          type="text"
+          placeholder="Title"
+          value={post.title}
+          onChange={(e) => setPost({ ...post, title: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Tag"
+          value={post.tag}
+          onChange={(e) => setPost({ ...post, tag: e.target.value })}
+        />
+      </div>
+
       <ReactQuill
         theme="snow"
+        modules={modules}
+        formats={formats}
         value={post.content}
         onChange={(content) => setPost({ ...post, content })}
-        style={{ color: "white" }}
+        style={{
+          color: "white",
+          height: "300px",
+          marginBottom: "110px",
+          width: "100%",
+        }}
       />
-      <input
-        type="text"
-        placeholder="태그"
-        value={post.tag}
-        onChange={(e) => setPost({ ...post, tag: e.target.value })}
-      />
-      <button onClick={handleSavePost}>완료</button>
+
+      <center>
+        <button className="blog-write-submit" onClick={handleSavePost}>
+          SUBMIT
+        </button>
+      </center>
     </div>
   );
 };

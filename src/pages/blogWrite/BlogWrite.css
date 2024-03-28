@@ -20,10 +20,57 @@
   background-color: snow;
 }
 
+.blog-write {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .blog-write-password-form h2 {
   color: white;
 }
 
-.react-quill-container .ql-container .ql-editor {
-  color: white; /* 텍스트 색상을 흰색으로 변경 */
+.blog-write-title-tag-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  gap: 2rem;
+}
+
+.blog-write-title-tag-container input {
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  background-color: black;
+}
+
+.blog-write-title-tag-container input:nth-child(1) {
+  width: 80%;
+  max-width: 600px;
+}
+
+.blog-write-title-tag-container input:nth-child(2) {
+  width: 50%;
+  max-width: 150px;
+}
+
+.blog-write-submit {
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: snow;
+  transition: 0.3s all ease;
+}
+
+.blog-write-submit:hover {
+  border-radius: 0px;
+  background-color: #202020;
+  color: white;
 }
