@@ -31,7 +31,7 @@ export default function BlogDetail() {
   useEffect(() => {
     let timer = setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 50);
+    }, 0);
 
     return () => {
       clearTimeout(timer);
@@ -48,9 +48,7 @@ export default function BlogDetail() {
   return (
     <>
       <TypingAnimation text="Blog Post" class="blog-detail-typing-animation" />
-      {isLoading || post.length === 0 ? (
-        <SkeletonBlogDetail />
-      ) : (
+      {isLoading ? null : (
         <div className="blog-detail animation-slow">
           <div className="blog-detail-post-container">
             <h1 className="blog-detail-post-title">{post[0].title}</h1>
@@ -92,15 +90,15 @@ export default function BlogDetail() {
   );
 }
 
-function SkeletonBlogDetail() {
-  return (
-    <div className="blog-detail-post-container skeleton skleton-blog-detail">
-      <div className="skeleton-blog-detail-title"></div>
-      <div className="skeleton-blog-detail-tag-date-container">
-        <div className="skeleton-blog-detail-tag"></div>
-        <div className="skeleton-blog-detail-date"></div>
-      </div>
-      <div className="skeleton-blog-detail-content"></div>
-    </div>
-  );
-}
+// function SkeletonBlogDetail() {
+//   return (
+//     <div className="blog-detail-post-container skeleton skleton-blog-detail">
+//       <div className="skeleton-blog-detail-title"></div>
+//       <div className="skeleton-blog-detail-tag-date-container">
+//         <div className="skeleton-blog-detail-tag"></div>
+//         <div className="skeleton-blog-detail-date"></div>
+//       </div>
+//       <div className="skeleton-blog-detail-content"></div>
+//     </div>
+//   );
+// }

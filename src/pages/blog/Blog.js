@@ -12,7 +12,9 @@ export default function Blog() {
   const [currentPage, setCurrentPage] = useState(() => {
     return Number(sessionStorage.getItem("blogCurrentPage")) || 1;
   });
+
   const { blogData, isLoading } = BlogDataFetch();
+
   const postsPerPage = 3;
   const navigate = useNavigate();
 
@@ -76,16 +78,10 @@ export default function Blog() {
           value={searchInput}
         ></input>
 
-        {isLoading ? (
-          <>
-            <SkeletonBlogPost />
-            <SkeletonBlogPost />
-            <SkeletonBlogPost />
-          </>
-        ) : (
+        {isLoading ? null : (
           <>
             <div className="blog-post-container">
-              {!searchInput && blogData ? (
+              {!searchInput ? (
                 <>
                   {currentPosts.map((item, index) => (
                     <div
@@ -159,12 +155,12 @@ export default function Blog() {
   );
 }
 
-function SkeletonBlogPost() {
-  return (
-    <div className="blog-post skeleton">
-      <div className="skeleton-title"></div>
-      <div className="skeleton-content"></div>
-      <div className="skeleton-tag"></div>
-    </div>
-  );
-}
+// function SkeletonBlogPost() {
+//   return (
+//     <div className="blog-post skeleton">
+//       <div className="skeleton-title"></div>
+//       <div className="skeleton-content"></div>
+//       <div className="skeleton-tag"></div>
+//     </div>
+//   );
+// }
