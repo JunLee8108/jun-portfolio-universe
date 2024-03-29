@@ -62,6 +62,27 @@ export default function Blog() {
     sessionStorage.setItem("blogCurrentPage", currentPage);
   }, [currentPage]);
 
+  if (blogData.length === 0) {
+    return (
+      <>
+        <TypingAnimation text="My Blog" class="blog-typing-animation" />
+        <div className="blog animation-slow">
+          <input
+            id="blog-search-id"
+            type="search"
+            placeholder="🔍 Search Post..."
+            className="blog-search"
+            onChange={handleSearch}
+            value={searchInput}
+          ></input>
+          <SkeletonBlogPost />
+          <SkeletonBlogPost />
+          <SkeletonBlogPost />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <TypingAnimation text="My Blog" class="blog-typing-animation" />
