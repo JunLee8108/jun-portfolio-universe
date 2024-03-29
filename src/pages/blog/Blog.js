@@ -12,7 +12,6 @@ export default function Blog() {
   const [currentPage, setCurrentPage] = useState(() => {
     return Number(sessionStorage.getItem("blogCurrentPage")) || 1;
   });
-  const [hereLoading, setHereLoading] = useState(false);
   const { blogData, isLoading } = BlogDataFetch();
   const postsPerPage = 3;
   const navigate = useNavigate();
@@ -63,25 +62,6 @@ export default function Blog() {
     sessionStorage.setItem("blogCurrentPage", currentPage);
   }, [currentPage]);
 
-  useEffect(() => {
-    const handlePopState = () => {
-      const currentPageFromStorage =
-        Number(sessionStorage.getItem("blogCurrentPage")) || 1;
-      setCurrentPage(currentPageFromStorage);
-      // 가정: 데이터를 다시 불러오는 함수가 필요하다면 여기서 호출
-      setHereLoading(true); // 데이터를 다시 불러오는 동안 스켈레톤 로딩을 보여줌
-      setTimeout(() => setHereLoading(false), 1000); // 가정: 데이터 로딩 시간을 모방
-    };
-
-    window.addEventListener("popstate", handlePopState);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
-  }, []);
-
-  // console.log(hereLoading);
-
   return (
     <>
       <TypingAnimation text="My Blog" class="blog-typing-animation" />
@@ -96,7 +76,7 @@ export default function Blog() {
           value={searchInput}
         ></input>
 
-        {isLoading || hereLoading ? (
+        {isLoading ? (
           <>
             <SkeletonBlogPost />
             <SkeletonBlogPost />
