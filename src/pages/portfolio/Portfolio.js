@@ -5,7 +5,6 @@ import TypingAnimation from "../../components/TypingAnimation";
 import { motion } from "framer-motion";
 
 export default function Portfolio() {
-  // Framer motion animation variants
   const cardVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.6 } },
     hidden: { opacity: 0, y: 30 },

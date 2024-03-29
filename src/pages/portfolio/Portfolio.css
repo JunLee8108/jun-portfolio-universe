@@ -77,22 +77,28 @@
 
 .project-button-container {
   margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .project-button-container button {
   padding: 13px 15px;
   margin: 5px 20px;
   margin-top: 3px;
-  border-radius: 10px;
-  background-color: #e2dddd;
+  border: none;
+  border-bottom: 2px solid white;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
   transition: 0.3s all ease;
   cursor: pointer;
-  color: black;
 }
 
 .project-button-container button:hover {
-  background-color: black;
-  color: white;
+  /* background-color: black; */
+  border-bottom: 2px solid var(--neon-green);
+  color: var(--neon-green);
 }
 
 @media screen and (max-width: 1280px) {
