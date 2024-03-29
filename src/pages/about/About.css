@@ -78,12 +78,16 @@
   background-color: #0a0a0a;
 }
 
-.about-tech-tack-section {
+.about-tech-stack {
+  scroll-padding: 300px;
+}
+
+.about-tech-stack-section {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  background-color: #212121;
+  background-color: #202020;
   padding: 30px;
   border-radius: 10px;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -111,6 +115,7 @@
 
 .tech-stack-container img {
   max-width: 55%;
+  filter: contrast(120%);
 }
 
 .tech-stack-border {
@@ -199,6 +204,47 @@
   color: white;
 }
 
+.sidebar {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  /* background: #333; */
+  background: #1d1d1d;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar p {
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+}
+
+.sidebar button {
+  padding: 10px 3px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.5px solid white;
+  color: white;
+  cursor: pointer;
+  margin: 3px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+.sidebar button:hover {
+  border-bottom: 0.5px solid var(--neon-green);
+  color: var(--neon-green);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
 @media (hover: hover) {
 }
 
@@ -237,6 +283,17 @@
   .about-me-description h2 {
     text-align: center;
   }
+
+  .about-tech-stack-section {
+    width: 80%;
+    /* grid-gap: 1rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    padding: 15px; */
+  }
+
+  .sidebar {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -255,6 +312,17 @@
   .about-me,
   .about-education {
     padding-bottom: 60px;
+  }
+
+  .about-tech-stack-section {
+    width: 80%;
+    grid-gap: 1rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    padding: 15px;
+  }
+
+  .about-tech-stack-section h3 {
+    font-size: 18px;
   }
 
   .tech-stack-container img {

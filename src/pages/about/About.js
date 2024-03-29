@@ -2,7 +2,7 @@ import "./About.css";
 import { techStackData } from "../../utils/data/data";
 import TypingAnimation from "../../components/TypingAnimation";
 
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useRef } from "react";
 
 import { motion } from "framer-motion";
 
@@ -13,6 +13,14 @@ export default function About() {
   const techStackModalData = techStackData.filter(
     (item) => item.name === techStack
   );
+
+  const aboutMeRef = useRef(null);
+  const educationRef = useRef(null);
+  const techStackRef = useRef(null);
+
+  const scrollToSection = (ref) => () => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   const sectionVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.6 } },
@@ -39,7 +47,7 @@ export default function About() {
     } else {
       timer = setTimeout(() => {
         setTechStackModal(false);
-      }, 400);
+      }, 395);
     }
 
     return () => {
@@ -49,8 +57,15 @@ export default function About() {
 
   return (
     <div className="about">
+      <div className="sidebar">
+        <p>Sidebar</p>
+        <button onClick={scrollToSection(aboutMeRef)}>About Me</button>
+        <button onClick={scrollToSection(educationRef)}>Education</button>
+        <button onClick={scrollToSection(techStackRef)}>Tech Stack</button>
+      </div>
+
       {/* About Me */}
-      <div className="about-me">
+      <div className="about-me" ref={aboutMeRef}>
         <TypingAnimation text="About Me" />
 
         <motion.section
@@ -100,7 +115,7 @@ export default function About() {
       </div>
 
       {/* Education */}
-      <div className="about-education">
+      <div className="about-education" ref={educationRef}>
         <TypingAnimation text="Education" />
 
         <motion.section
@@ -139,14 +154,14 @@ export default function About() {
       </div>
 
       {/* Tech-Stack */}
-      <div className="about-tech-stack">
+      <div className="about-tech-stack" ref={techStackRef}>
         <TypingAnimation
           text="Tech Stack"
           class="tech-stack-animation-container"
         />
 
         <motion.section
-          className="about-tech-tack-section"
+          className="about-tech-stack-section"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
