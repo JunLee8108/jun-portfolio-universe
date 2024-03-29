@@ -45,22 +45,22 @@ export default function BlogDetail() {
     }
   }, [isLoading, post, navigate]);
 
-  if (post.length === 0) {
-    return (
-      <>
-        <TypingAnimation
-          text="Blog Post"
-          class="blog-detail-typing-animation"
-        />
-        <SkeletonBlogDetail />
-      </>
-    );
-  }
+  // if (post.length === 0) {
+  //   return (
+  //     <>
+  //       <TypingAnimation
+  //         text="Blog Post"
+  //         class="blog-detail-typing-animation"
+  //       />
+  //       <SkeletonBlogDetail />
+  //     </>
+  //   );
+  // }
 
   return (
     <>
       <TypingAnimation text="Blog Post" class="blog-detail-typing-animation" />
-      {isLoading ? (
+      {isLoading || post.length === 0 ? (
         <SkeletonBlogDetail />
       ) : (
         <div className="blog-detail animation-slow">
