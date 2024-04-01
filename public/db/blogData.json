@@ -15,37 +15,16 @@
   },
   {
     "title": " Managing forms in React using state management versus using FormData",
-    "content": "<p><span style=\"color: rgb(236, 236, 236); background-color: rgb(33, 33, 33);\"> In React, using state management for handling forms could be advantageous in terms of two-way data binding, asynchronous validation, and component reusability.</span></p><p><span style=\"color: rgb(236, 236, 236); background-color: rgb(33, 33, 33);\">On the other hand, using FormData offers a straightforward and fast development process, with potential performance benefits for large forms.</span></p><p><br></p><p><strong style=\"color: rgb(0, 102, 204); background-color: rgb(33, 33, 33);\">Data Binding</strong></p><p>Using State Management: <span style=\"color: rgb(236, 236, 236); background-color: rgb(33, 33, 33);\">Easy to implement two-way data binding. User input updates the state, and state changes are reflected on the UI.</span></p><p>Using FormData: <span style=\"color: rgb(236, 236, 236); background-color: rgb(33, 33, 33);\">Generally one-way. User input is not internally managed, and data is collected only at submission.</span></p><p><strong style=\"color: rgb(0, 102, 204); background-color: rgb(33, 33, 33);\">Component Reusability</strong></p><p>Using State Management: <span style=\"color: rgb(236, 236, 236); background-color: rgb(33, 33, 33);\">High. Form elements can be encapsulated into components for reuse.</span></p><p>Using FormData: <span style=\"color: rgb(236, 236, 236); background-color: rgb(33, 33, 33);\">Lower. When using FormData, reusability of form elements may not be as flexible as state management.</span></p><p><strong style=\"color: rgb(0, 102, 204); background-color: rgb(33, 33, 33);\">Performance</strong></p><p>Using State Management: <span style=\"color: rgb(236, 236, 236); background-color: rgb(33, 33, 33);\">Large forms might face performance issues. Each input field update triggers a state update, necessitating optimization.</span></p><p>Using FormData: <span style=\"color: rgb(236, 236, 236); background-color: rgb(33, 33, 33);\">Potentially more efficient. Data is processed at once upon submission, resulting in fewer re-renders.</span></p>",
+    "content": "<p><span style=\"background-color: rgb(33, 33, 33); color: rgb(236, 236, 236);\"> In React, using state management for handling forms could be advantageous in terms of two-way data binding, asynchronous validation, and component reusability.</span></p><p><span style=\"background-color: rgb(33, 33, 33); color: rgb(236, 236, 236);\">On the other hand, using FormData offers a straightforward and fast development process, with potential performance benefits for large forms.</span></p><h1><strong style=\"background-color: rgb(33, 33, 33); color: rgb(255, 153, 0);\">Data Binding</strong></h1><p><strong>Using State Management:</strong> <span style=\"background-color: rgb(33, 33, 33); color: rgb(236, 236, 236);\">Easy to implement two-way data binding. User input updates the state, and state changes are reflected on the UI.</span></p><p><strong>Using FormData:</strong> <span style=\"background-color: rgb(33, 33, 33); color: rgb(236, 236, 236);\">Generally one-way. User input is not internally managed, and data is collected only at submission.</span></p><h1><strong style=\"background-color: rgb(33, 33, 33); color: rgb(255, 153, 0);\">Component Reusability</strong></h1><p><strong>Using State Management:</strong> <span style=\"background-color: rgb(33, 33, 33); color: rgb(236, 236, 236);\">High. Form elements can be encapsulated into components for reuse.</span></p><p><strong>Using FormData:</strong> <span style=\"background-color: rgb(33, 33, 33); color: rgb(236, 236, 236);\">Lower. When using FormData, reusability of form elements may not be as flexible as state management.</span></p><h1><strong style=\"background-color: rgb(33, 33, 33); color: rgb(255, 153, 0);\">Performance</strong></h1><p><strong>Using State Management:</strong> <span style=\"background-color: rgb(33, 33, 33); color: rgb(236, 236, 236);\">Large forms might face performance issues. Each input field update triggers a state update, necessitating optimization.</span></p><p><strong>Using FormData:</strong> <span style=\"background-color: rgb(33, 33, 33); color: rgb(236, 236, 236);\">Potentially more efficient. Data is processed at once upon submission, resulting in fewer re-renders.</span></p>",
     "tag": "React",
     "date": "03/28/2024",
     "id": 2
   },
   {
-    "title": "예시",
-    "content": "<p>예시</p>",
-    "tag": "태그",
-    "date": "03/28/2024",
-    "id": 3
-  },
-  {
-    "title": "예시",
-    "content": "<p>예시</p>",
-    "tag": "태그",
-    "date": "03/28/2024",
-    "id": 3
-  },
-  {
-    "title": "예시",
-    "content": "<p>예시</p>",
-    "tag": "태그",
-    "date": "03/28/2024",
-    "id": 3
-  },
-  {
-    "title": "예시",
-    "content": "<p>예시</p>",
-    "tag": "태그",
-    "date": "03/28/2024",
-    "id": 3
+    "title": "Simplifying Next.js API Routes and Handlers",
+    "content": "<p>let's dive into how Next.js handles API routes and what you need to know to get started.</p><h1><span style=\"color: rgb(255, 153, 0);\">API Routes</span></h1><p>In Next.js, organizing your API files is pretty straightforward. You'll want to place your API files under the <strong>app/api/[your folder name]/route.js</strong> (or .ts if you're using TypeScript).</p><p>ex)</p><pre class=\"ql-syntax\" spellcheck=\"false\">// route.ts\nexport async function POST(request: Request) {\n  const notebooks = [\n    { name: \"Notebook A\", cpu: \"Intel\", ram: 16, ssd: 512, display: 15.6 },\n    { name: \"Notebook B\", cpu: \"AMD\", ram: 8, ssd: 256, display: 14 },\n  ];\n\n  return new Response(JSON.stringify({ notebooks }), {\n    headers: {\n      \"Content-Type\": \"application/json\",\n    },\n  });\n}\n</pre><h1><span style=\"color: rgb(255, 153, 0);\">HTTP Methods</span></h1><p>You can use various HTTP methods like GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS. Here's a quick overview:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">GET</span>: Fetch data from the server.</li><li><span style=\"color: var(--tw-prose-bold);\">POST</span>: Submit data to the server.</li><li><span style=\"color: var(--tw-prose-bold);\">PUT/PATCH</span>: Update existing data.</li><li><span style=\"color: var(--tw-prose-bold);\">DELETE</span>: Remove data.</li><li><span style=\"color: var(--tw-prose-bold);\">HEAD/OPTIONS</span>: Used for checking the capabilities of the server or resource.</li></ul><h1><span style=\"color: rgb(255, 153, 0);\">Data Fetching on the Server Side</span></h1><pre class=\"ql-syntax\" spellcheck=\"false\">async function getNotebookData() {\n  const res = await fetch(\"http://localhost:3000/api/search\", {\n    method: \"POST\",\n    cache: \"no-store\",\n  });\n  return res.json();\n}\n\nexport default async function Home() {\n  const notebookData = await getNotebookData();\n  return (\n  ~\n  );\n}\n</pre>",
+    "tag": "Next.js",
+    "date": "03/31/2024",
+    "id": 4
   }
 ]

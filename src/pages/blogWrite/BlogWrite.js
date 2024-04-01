@@ -28,8 +28,10 @@ const BlogWrite = () => {
   };
 
   const handleSavePost = async () => {
-    if (post.title === "") return alert("Please Enter the title.");
-    if (post.tag === "") return alert("Please Enter the tag.");
+    if (!post.title || !post.tag) {
+      alert("Title and tag are required.");
+      return;
+    }
 
     // 오늘 날짜를 MM/DD/YYYY 형식으로 생성
     const today = new Date();
@@ -41,9 +43,12 @@ const BlogWrite = () => {
     const [month, day, year] = dateFormat.split("/");
     const formattedDate = `${month}/${day}/${year}`;
 
+    const cleanedContent = post.content.replace(/<p><br><\/p>/g, "");
+
     // 새 글 객체에 날짜 추가
     const newPost = {
       ...post,
+      content: cleanedContent,
       date: formattedDate,
     };
 
@@ -63,6 +68,7 @@ const BlogWrite = () => {
     "underline",
     "strike",
     "blockquote",
+    "code-block",
     "list",
     "bullet",
     "indent",
@@ -76,7 +82,7 @@ const BlogWrite = () => {
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
+      ["bold", "italic", "underline", "strike", "blockquote", "code-block"],
       [
         { list: "ordered" },
         { list: "bullet" },

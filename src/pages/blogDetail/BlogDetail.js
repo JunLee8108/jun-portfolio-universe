@@ -6,6 +6,8 @@ import { useEffect } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import hljs from "highlight.js";
+import "highlight.js/styles/github.css"; // 또는 선호하는 스타일
 
 export default function BlogDetail() {
   let { id } = useParams();
@@ -45,6 +47,12 @@ export default function BlogDetail() {
     }
   }, [isLoading, post, navigate]);
 
+  useEffect(() => {
+    document.querySelectorAll("pre.ql-syntax").forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  }, [post]); // post가 변경될 때마다 하이라이트를 다시 적용
+
   return (
     <>
       <TypingAnimation text="Blog Post" class="blog-detail-typing-animation" />
@@ -79,7 +87,7 @@ export default function BlogDetail() {
           <center>
             <button
               className="blog-detail-back-button"
-              onClick={() => navigate(-1)}
+              onClick={() => navigate("/blog")}
             >
               Go Back to Blog
             </button>

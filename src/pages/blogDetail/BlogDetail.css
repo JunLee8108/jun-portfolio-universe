@@ -24,7 +24,6 @@
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 30px;
-  padding-bottom: 35px;
   margin: auto;
   border-radius: 10px;
   background-color: #202020;
@@ -35,10 +34,12 @@
   letter-spacing: 0.5px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   width: 90%;
-  margin-top: 5px;
+  font-size: 1.8rem;
   margin-left: auto;
   margin-right: auto;
   padding: 20px 0;
+  margin-top: 0;
+  /* background-color: red; */
   border-bottom: 1px dotted gray;
 }
 
@@ -64,6 +65,16 @@
   width: 90%;
   margin: 20px auto;
   word-wrap: break-word;
+}
+
+.blog-detail-post-content h1 {
+  line-height: 30px;
+  font-size: 1.8rem;
+  margin-top: 40px;
+}
+
+.blog-detail-post-content pre {
+  overflow-x: auto;
 }
 
 .blog-detail-edit-delete-container button {
@@ -193,5 +204,10 @@
     font-size: 1.1rem;
     line-height: 35px;
     width: 100%;
+  }
+
+  .blog-detail-post-content h1 {
+    line-height: 30px;
+    font-size: 1.5rem;
   }
 }

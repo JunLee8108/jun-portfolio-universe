@@ -32,8 +32,6 @@ export default function BlogEdit() {
     fetchPost();
   }, [id, navigate]);
 
-  console.log(id);
-
   const handleUpdatePost = async () => {
     // 필수 입력 검사
     if (!post.title || !post.tag) {
@@ -41,8 +39,17 @@ export default function BlogEdit() {
       return;
     }
 
+    // 내용에서 모든 <p><br></p> 패턴 제거
+    const cleanedContent = post.content.replace(/<p><br><\/p>/g, "");
+
+    // 수정된 내용으로 post 객체 업데이트
+    const updatedPost = {
+      ...post,
+      content: cleanedContent,
+    };
+
     try {
-      await axios.put(`http://localhost:4000/api/posts/${id}`, post);
+      await axios.put(`http://localhost:4000/api/posts/${id}`, updatedPost);
       alert("글이 업데이트되었습니다.");
       navigate(`/blog/${id}`, { replace: true }); // 성공적으로 업데이트 후 해당 글 상세 페이지로 이동
     } catch (error) {
@@ -57,6 +64,7 @@ export default function BlogEdit() {
     "underline",
     "strike",
     "blockquote",
+    "code-block",
     "list",
     "bullet",
     "indent",
@@ -70,7 +78,7 @@ export default function BlogEdit() {
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
+      ["bold", "italic", "underline", "strike", "blockquote", "code-block"],
       [
         { list: "ordered" },
         { list: "bullet" },
@@ -112,7 +120,7 @@ export default function BlogEdit() {
         onChange={(content) => setPost({ ...post, content })}
         style={{
           color: "white",
-          height: "300px",
+          height: "800px",
           marginBottom: "110px",
           width: "100%",
         }}
