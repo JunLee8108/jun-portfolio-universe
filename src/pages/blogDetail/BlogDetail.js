@@ -56,44 +56,46 @@ export default function BlogDetail() {
   return (
     <>
       <TypingAnimation text="Blog Post" class="blog-detail-typing-animation" />
-      {isLoading ? null : (
-        <div className="blog-detail animation-slow">
-          <div className="blog-detail-post-container">
-            <h1 className="blog-detail-post-title">{post[0].title}</h1>
+      <div className="blog-detail animation-slow">
+        {!isLoading && (
+          <>
+            <div className="blog-detail-post-container">
+              <h1 className="blog-detail-post-title">{post[0].title}</h1>
 
-            <div className="blog-detail-post-tag-date-container">
-              <div className="blog-detail-tag-container">
-                <p>Tag: </p>
-                <button className="blog-post-tag">{post[0].tag}</button>
+              <div className="blog-detail-post-tag-date-container">
+                <div className="blog-detail-tag-container">
+                  <p>Tag: </p>
+                  <button className="blog-post-tag">{post[0].tag}</button>
+                </div>
+                <p>{post[0].date}</p>
               </div>
-              <p>{post[0].date}</p>
+
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post[0].content,
+                }}
+                className="blog-detail-post-content"
+              />
+
+              <div className="blog-detail-edit-delete-container">
+                <button onClick={() => navigate(`/edit/${post[0].id}`)}>
+                  EDIT
+                </button>
+                <button onClick={handleDeletePost}>DELETE</button>
+              </div>
             </div>
 
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post[0].content,
-              }}
-              className="blog-detail-post-content"
-            />
-
-            <div className="blog-detail-edit-delete-container">
-              <button onClick={() => navigate(`/edit/${post[0].id}`)}>
-                EDIT
+            <center>
+              <button
+                className="blog-detail-back-button"
+                onClick={() => navigate("/blog")}
+              >
+                Go Back to Blog
               </button>
-              <button onClick={handleDeletePost}>DELETE</button>
-            </div>
-          </div>
-
-          <center>
-            <button
-              className="blog-detail-back-button"
-              onClick={() => navigate("/blog")}
-            >
-              Go Back to Blog
-            </button>
-          </center>
-        </div>
-      )}
+            </center>
+          </>
+        )}
+      </div>
     </>
   );
 }

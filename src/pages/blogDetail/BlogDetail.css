@@ -12,6 +12,7 @@
 
 .blog-detail {
   max-width: 800px;
+  min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
 }
